@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bibliotheque.css">
+
+    <!-- https://fontawesome.com/icons?d=gallery&m=free -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+        integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"> </script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+
+    <title>Bibliotheque</title>
+</head>
+
+<body class="colorBGApplication">
+
+    <!-- Entete de la page -->
+    <div class="row">
+        <h1 class="text-center fw-bold">Bibliotheque</h1>
+        <hr />
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <a class="navbar-brand" href="./index.html"><button type="button"
+                            class="btn btn-outline-success fw-bold">Home</button></a>
+                    <a class="navbar-brand" href="./adminAuteurs.html"><button type="button"
+                            class="btn btn-outline-success fw-bold">Les auteurs</button></a>
+                    <a class="navbar-brand" href="./adminLivres.html"><button type="button" class="btn btn-outline-success fw-bold">Les
+                            Livres</button></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Corps de la page -->
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h2>Modification d'un auteur</h2>
+            <hr />
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-3">
+            </div>
+
+            <div class="col-sm-6">
+                <div class="card alert-secondary mb-3 shadow rounded">
+                    <div class="card-header bg-secondary font-weight-bold">
+                        <i class="fas fa-user"></i> Modification d'un auteur
+                    </div>
+                    <div class="card-body">
+                        <div class="col-sm-12">
+                            <form action="./adminAuteurs.html">
+                                <div class="form-group col-sm-12">
+                                    <b>Nom</b>
+                                    <input type="text" id="nomauteur" class="form-control" placeholder="Nom">
+                                </div>
+                                <br />
+                                <div class="form-group col-sm-12">
+                                    <b>Prénom</b>
+                                    <input type="text" id="prenomauteur" class="form-control" placeholder="Prénom">
+                                </div>
+                                <br />
+                                <div class="form-group col-sm-12">
+                                    <b>Téléphone</b>
+                                    <input type="text" id="telephone" class="form-control" placeholder="Téléphone">
+                                </div>
+                                <br />
+                                <div class="form-group col-sm-12">
+                                    <b>Email</b>
+                                    <input type="text" id="email" class="form-control" placeholder="Email">
+                                </div>
+                                <br />
+                                <br />
+                                <hr />
+                                <div class="form-group col-sm-12 text-center">
+                                    <button type="submit" class="btn btn-primary">Valider</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

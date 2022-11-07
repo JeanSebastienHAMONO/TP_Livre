@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bibliotheque.css">
+
+    <!-- https://fontawesome.com/icons?d=gallery&m=free -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+        integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"> </script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    </script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    </script>
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+            $('#tabAuteurs').DataTable();
+        });
+    </script>
+
+    <title>Bibliotheque</title>
+</head>
+
+<body class="colorBGApplication">
+
+    <!-- Entete de la page -->
+    <div class="row">
+        <h1 class="text-center fw-bold">Bibliotheque</h1>
+        <hr />
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <a class="navbar-brand" href="./index.html"><button type="button"
+                            class="btn btn-outline-success fw-bold">Home</button></a>
+                    <a class="navbar-brand" href="./adminAuteurs.html"><button type="button" class="btn btn-outline-success fw-bold">Les auteurs</button></a>
+                   <!-- <a class="navbar-brand" href="#"><button type="button" class="btn btn-outline-success fw-bold">Les
+                            Livres</button></a> -->
+                    <a class="navbar-brand" href="./addLivre.html"><button type="button"
+                            class="btn btn-outline-success fw-bold">Ajouter Livre</button></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Corps de la page -->
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h2>Gestion des livres</h2>
+            <hr />
+        </div>
+
+        <div class="col-sm-12 text-center">
+            <div class="col-sm-12 text-center">
+                Liste des livres
+            </div>
+            <div class="col-sm-12 text-center table-responsive-sm">
+                <table id="tabAuteurs" class="table table-hover table-bordered table-sm" style="width:100%">
+                    <thead>
+                        <tr class="table-primary">
+                            <th data-sortable="true">Titre</th>
+                            <th class="cacheInfo" data-sortable="true">Nb Pages</th>
+                            <th class="cacheInfo" data-sortable="true">Catégorie</th>
+                            <th class="cacheInfo" data-sortable="true">Nom Auteur</th>
+                            <th class="cacheInfo" data-sortable="true">Prénom Auteur</th>
+                            <th data-sortable="true">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Le seigneur des anneaux</td>
+                            <td class="cacheInfo">1500</td>
+                            <td class="cacheInfo">Fantasy</td>
+                            <td class="cacheInfo">TOLKIEN</td>
+                            <td class="cacheInfo">J.R.R.</td>
+                            <td><a href="./editLivre.html"><button class="btn btn-info btn-sm">...</button></a></td>
+                        </tr>
+                        <tr>
+                            <td>Dagon</td>
+                            <td class="cacheInfo">530</td>
+                            <td class="cacheInfo">Fantasy</td>
+                            <td class="cacheInfo">LOVECRAFT</td>
+                            <td class="cacheInfo">Howard P.</td>
+                            <td><a href="./editLivre.html"><button class="btn btn-info btn-sm">...</button></a></td>
+                        </tr>
+                        <tr>
+                            <td>Cyborg</td>
+                            <td class="cacheInfo">540</td>
+                            <td class="cacheInfo">Science Fiction</td>
+                            <td class="cacheInfo">ASIMOV</td>
+                            <td class="cacheInfo">Isaac</td>
+                            <td><a href="./editLivre.html"><button class="btn btn-info btn-sm">...</button></a></td>
+                        </tr>
+                        <tr>
+                            <td>Dune</td>
+                            <td class="cacheInfo">368</td>
+                            <td class="cacheInfo">Science Fiction</td>
+                            <td class="cacheInfo">HERBERT</td>
+                            <td class="cacheInfo">Franck</td>
+                            <td><a href="./editLivre.html"><button class="btn btn-info btn-sm">...</button></a></td>
+                        </tr>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
