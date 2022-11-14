@@ -40,31 +40,24 @@
                                 <input type="hidden" id="idlivre" name="idlivre" value='<c:out value="${idlivre}" />' />
                                 <div class="form-group col-sm-12">
                                     <b>Titre</b>
-                                    <input type="text" id="titre" name="titre" class="form-control" placeholder="Titre" value='<c:out value="${livre.titre}" />' required />
+                                    <input type="text" id="titre" name="titre" class="form-control" placeholder="Titre" value='<c:out value="${livre.titre}" />' maxlength="50" required />
                                 </div>
                                 <br />
                                 <div class="form-group col-sm-12">
                                     <b>Nombre de pages</b>
-                                    <input type="text" pattern='[0-9]+' id="nbpages" name="nbpages" class="form-control" placeholder="Nombre de pages"  value='<c:out value="${livre.nbPages}" />' oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required >
+                                    <input type="text" pattern='[0-9]+' id="nbpages" name="nbpages" class="form-control" placeholder="Nombre de pages"  value='<c:out value="${livre.nbPages}" />' oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10" required >
                                 </div>
                                 <br />
                                 <div class="form-group col-sm-12">
                                     <b>Catégorie</b>
-                                    <input type="text" id="categorie" name="categorie" class="form-control" placeholder="Catégorie"  value='<c:out value="${livre.categorie}" />' />
+                                    <input type="text" id="categorie" name="categorie" class="form-control" placeholder="Catégorie"  value='<c:out value="${livre.categorie}" />' maxlength="20" />
                                 </div>
                                 <br />
                                 <div class="form-group col-sm-12">
                                     <b>Auteur</b>
                                     <select id="idauteur" name="idauteur" class="form-control form-select">
                                     <c:forEach items="${listAuteur}" var="auteur" varStatus="infoBoucle">
-                                    	<c:choose>
-    										<c:when test="${livre.auteur.id == auteur.id}">
-         										<option value='<c:out value="${auteur.id}" />' selected>
-         									</c:when>	
-    										<c:otherwise>
-        										<option value='<c:out value="${auteur.id}" />' >
-    										</c:otherwise>
-										</c:choose>
+         								<option value='<c:out value="${auteur.id}" />'  <c:out default="" value="${livre.auteur.id == auteur.id ? 'selected' : ''}"/> >
 	                                        <c:out value="${auteur.nom}" /> <c:out value="${auteur.prenom}" />
                                         </option>
                                     </c:forEach>
