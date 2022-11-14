@@ -40,8 +40,8 @@
                                 <input type="hidden" id="idauteur" name="idauteur" value="${idauteur}">
                                 <div class="form-group col-sm-12">
                                     <b>Nom</b>
-                                    <input type="text" id="nom" name="nom" class="form-control" placeholder="Nom" value='<c:out value="${nom}" />' />
-                                </div>
+                                    <input type="text" id="nom" name="nom" class="form-control" placeholder="Nom" value='<c:out value="${nom}" />' required />
+                                 </div>
                                 <br />
                                 <div class="form-group col-sm-12">
                                     <b>Prénom</b>
@@ -50,7 +50,7 @@
                                 <br />
                                 <div class="form-group col-sm-12">
                                     <b>Téléphone</b>
-                                    <input type="text" id="telephone" name="telephone" class="form-control" placeholder="Téléphone"  value='<c:out value="${telephone}" />' />
+                                    <input type="text" id="telephone" name="telephone" class="form-control" placeholder="Téléphone"  value='<c:out value="${telephone}" />' required />
                                 </div>
                                 <br />
                                 <div class="form-group col-sm-12">

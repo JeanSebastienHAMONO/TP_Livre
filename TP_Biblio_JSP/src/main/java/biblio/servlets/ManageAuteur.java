@@ -33,10 +33,10 @@ public class ManageAuteur extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		String idAuteur = request.getParameter("idauteur");
 		String libelleAction = "";
-		
+
 		if ((idAuteur == null) || (idAuteur.trim().length() <= 0)) {
 			libelleAction = "Ajout";
 		} else {
@@ -49,7 +49,7 @@ public class ManageAuteur extends HttpServlet {
 				System.out.println("Erreur sur l'identifiant de l'auteur : " + idAuteur);
 				response.sendRedirect(request.getContextPath() + "/ListAuteurs");
 			}
-			
+
 			if (id > 0) {
 				try {
 					Auteur auteur = auteurDao.trouver(id);
@@ -67,9 +67,9 @@ public class ManageAuteur extends HttpServlet {
 				response.sendRedirect(request.getContextPath() + "/ListAuteurs");
 			}
 		}
-		
+
 		request.setAttribute("libelleAction", libelleAction);
-		
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/ManageAuteur.jsp").forward(request, response);
 	}
 
@@ -79,75 +79,70 @@ public class ManageAuteur extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		String idAuteur = request.getParameter("idauteur");
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String telephone = request.getParameter("telephone");
 		String email = request.getParameter("email");
-		
+
 		String messageErreur = "";
 		String message = "";
 		String libelleAction = "Modification";
 		boolean ctrl = true;
-		
+
 		AuteurDao auteurDao = DaoFactory.getInstance().getAuteurDao();
 		Auteur auteur = null;
 		
-		if ((idAuteur == null) || (idAuteur.trim().length() <= 0)) {
-			
-			// Ajout d'un auteur
-			libelleAction = "Ajout";
-			if ((nom == null) || (nom.trim().length() <= 0)) {
-				ctrl = false;
-				messageErreur = messageErreur + "Veuillez saisir le nom<br/>";
-			}
-			if ((telephone == null) || (telephone.trim().length() <= 0)) {
-				ctrl = false;
-				messageErreur = messageErreur + "Veuillez saisir le numéro de téléphone<br/>";
-			}
-            if (ctrl) {
-            	try {
-            		 auteur = new Auteur(nom, prenom, telephone, email);
-            		 auteurDao.creer(auteur);
-            	     message = "Auteur enregitré !";
-            	     request.setAttribute("idauteur", auteur.getId().toString());
-            	     libelleAction = "Modification";
-            	} catch (DaoException d) {
-            		messageErreur = messageErreur + "Erreur lors de l'enregistrement !";
-            		d.printStackTrace();
-            	}
-            }
-		} else {
-			if ((nom == null) || (nom.trim().length() <= 0)) {
-				ctrl = false;
-				messageErreur = messageErreur + "Veuillez saisir le nom<br/>";
-			}
-			if ((telephone == null) || (telephone.trim().length() <= 0)) {
-				ctrl = false;
-				messageErreur = messageErreur + "Veuillez saisir le numéro de téléphone<br/>";
-			}
-			request.setAttribute("idauteur", idAuteur);
-            if (ctrl) {
-            	try {
-            	     auteur = new Auteur(nom, prenom, telephone, email);
-            	     auteur.setId((long) Integer.parseInt(idAuteur));
-            	     auteurDao.miseAJour(auteur);
-            	     message = "Auteur modifié !";
-            	} catch (DaoException d) {
-            		messageErreur = messageErreur + "Erreur lors de la mise à jour !";
-            		d.printStackTrace();
-            	}
-            }
+		request.setAttribute("idauteur", idAuteur);
+
+		if ((nom == null) || (nom.trim().length() <= 0)) {
+			ctrl = false;
+			messageErreur = messageErreur + "Le nom est obligatoire<br/>";
 		}
-		
-        request.setAttribute("nom", nom);
+		if ((telephone == null) || (telephone.trim().length() <= 0)) {
+			ctrl = false;
+			messageErreur = messageErreur + "Le numéro de téléphone est obligatoire<br/>";
+		}
+
+		if (ctrl) {
+			if ((idAuteur == null) || (idAuteur.trim().length() <= 0)) {
+
+				// Ajout d'un auteur
+				libelleAction = "Ajout";
+
+				try {
+					auteur = new Auteur(nom, prenom, telephone, email);
+					auteurDao.creer(auteur);
+					message = "Auteur enregitré !";
+					request.setAttribute("idauteur", auteur.getId().toString());
+					libelleAction = "Modification";
+				} catch (DaoException d) {
+					messageErreur = messageErreur + "Erreur lors de l'enregistrement !";
+					d.printStackTrace();
+				}
+			} else {
+
+				request.setAttribute("idauteur", idAuteur);
+				try {
+					auteur = new Auteur(nom, prenom, telephone, email);
+					auteur.setId((long) Integer.parseInt(idAuteur));
+					auteurDao.miseAJour(auteur);
+					message = "Auteur modifié !";
+				} catch (DaoException d) {
+					messageErreur = messageErreur + "Erreur lors de la mise à jour !";
+					d.printStackTrace();
+				}
+			}
+		}
+
+		request.setAttribute("nom", nom);
 		request.setAttribute("prenom", prenom);
 		request.setAttribute("telephone", telephone);
 		request.setAttribute("email", email);
 		request.setAttribute("message", message);
 		request.setAttribute("messageErreur", messageErreur);
-		
+
 		request.setAttribute("libelleAction", libelleAction);
 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/ManageAuteur.jsp").forward(request, response);

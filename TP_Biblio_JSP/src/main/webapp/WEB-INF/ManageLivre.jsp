@@ -40,12 +40,12 @@
                                 <input type="hidden" id="idlivre" name="idlivre" value='<c:out value="${idlivre}" />' />
                                 <div class="form-group col-sm-12">
                                     <b>Titre</b>
-                                    <input type="text" id="titre" name="titre" class="form-control" placeholder="Titre" value='<c:out value="${livre.titre}" />' />
+                                    <input type="text" id="titre" name="titre" class="form-control" placeholder="Titre" value='<c:out value="${livre.titre}" />' required />
                                 </div>
                                 <br />
                                 <div class="form-group col-sm-12">
                                     <b>Nombre de pages</b>
-                                    <input type="text" pattern='[0-9]+' id="nbpages" name="nbpages" class="form-control" placeholder="Nombre de pages"  value='<c:out value="${livre.nbPages}" />' oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                    <input type="text" pattern='[0-9]+' id="nbpages" name="nbpages" class="form-control" placeholder="Nombre de pages"  value='<c:out value="${livre.nbPages}" />' oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required >
                                 </div>
                                 <br />
                                 <div class="form-group col-sm-12">
