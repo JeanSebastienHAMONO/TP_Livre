@@ -37,7 +37,7 @@ public class Livre {
 	}
 
 	public void setTitre(String titre) {
-		this.titre = titre;
+		this.titre = titre.substring(0, 50);
 	}
 
 	public int getNbPages() {
@@ -53,7 +53,7 @@ public class Livre {
 	}
 
 	public void setCategorie(String categorie) {
-		this.categorie = categorie;
+		this.categorie = categorie.substring(0, 20);
 	}
 
 	public Auteur getAuteur() {

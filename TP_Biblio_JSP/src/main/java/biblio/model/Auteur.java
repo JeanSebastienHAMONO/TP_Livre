@@ -1,9 +1,5 @@
 package biblio.model;
 
-/**
- * Donner par le formateur 
- *
- */
 public class Auteur {
 
 	private Long   id;
@@ -16,10 +12,10 @@ public class Auteur {
     }
     
     public Auteur(String nom, String prenom, String telephone, String email) { 
-    	this.nom = nom;
-    	this.prenom = prenom;
-    	this.telephone = telephone;
-    	this.email = email;
+    	this.setNom(nom);
+    	this.setPrenom(prenom);
+    	this.setTelephone(telephone);
+    	this.setEmail(email);
     }
     
 	public Long getId() {
@@ -32,25 +28,25 @@ public class Auteur {
 		return nom;
 	}
 	public void setNom(String nom) {
-		this.nom = nom;
+		this.nom = nom.substring(0, 20);
 	}
 	public String getPrenom() {
 		return prenom;
 	}
 	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+		this.prenom = prenom.substring(0, 20);
 	}
 	public String getTelephone() {
 		return telephone;
 	}
 	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+		this.telephone = telephone.substring(0, 10);
 	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		this.email = email.substring(0, 60);
 	}
 
 	@Override

@@ -130,8 +130,12 @@ public class ManageAuteur extends HttpServlet {
 				// Modification d'un auteur
 				request.setAttribute("idauteur", idAuteur);
 				try {
-					auteur = new Auteur(nom, prenom, telephone, email);
-					auteur.setId((long) Integer.parseInt(idAuteur));
+					// On recupere l'auteur (best practice)
+					auteur = auteurDao.trouver((long) Integer.parseInt(idAuteur));
+					auteur.setNom(nom);
+					auteur.setPrenom(prenom);
+					auteur.setTelephone(telephone);
+					auteur.setEmail(email);
 					auteurDao.miseAJour(auteur);
 					message = "Auteur modifié !";
 				} catch (DaoException d) {

@@ -50,7 +50,7 @@
                                 <br />
                                 <div class="form-group col-sm-12">
                                     <b>Téléphone</b>
-                                    <input type="text" id="telephone" name="telephone" class="form-control" placeholder="Téléphone"  value='<c:out value="${telephone}" />' maxlength="10" required />
+                                    <input type="text" id="telephone" name="telephone" class="form-control" placeholder="Téléphone"  value='<c:out value="${telephone}" />' maxlength="10"  pattern="[0-9]{10}" title="10 chiffres attendus" required />
                                 </div>
                                 <br />
                                 <div class="form-group col-sm-12">

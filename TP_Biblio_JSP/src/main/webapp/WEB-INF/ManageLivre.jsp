@@ -45,7 +45,7 @@
                                 <br />
                                 <div class="form-group col-sm-12">
                                     <b>Nombre de pages</b>
-                                    <input type="text" pattern='[0-9]+' id="nbpages" name="nbpages" class="form-control" placeholder="Nombre de pages"  value='<c:out value="${livre.nbPages}" />' oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10" required >
+                                    <input type="text" id="nbpages" name="nbpages" class="form-control" placeholder="Nombre de pages"  value='<c:out value="${livre.nbPages}" />' pattern='[0-9]+' oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10" title="10 chiffres max attendus" required >
                                 </div>
                                 <br />
                                 <div class="form-group col-sm-12">
@@ -55,7 +55,7 @@
                                 <br />
                                 <div class="form-group col-sm-12">
                                     <b>Auteur</b>
-                                    <select id="idauteur" name="idauteur" class="form-control form-select">
+                                    <select id="idauteur" name="idauteur" class="form-control form-select" title="Choisir un auteur dans la liste">
                                     <c:forEach items="${listAuteur}" var="auteur" varStatus="infoBoucle">
          								<option value='<c:out value="${auteur.id}" />'  <c:out default="" value="${livre.auteur.id == auteur.id ? 'selected' : ''}"/> >
 	                                        <c:out value="${auteur.nom}" /> <c:out value="${auteur.prenom}" />

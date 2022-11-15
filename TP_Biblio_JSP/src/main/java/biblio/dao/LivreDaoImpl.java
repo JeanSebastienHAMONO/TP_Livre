@@ -11,6 +11,10 @@ import java.util.List;
 import biblio.model.Auteur;
 import biblio.model.Livre;
 
+/**
+ * Implementation du DAO Livre 
+ *
+ */
 public class LivreDaoImpl implements LivreDao {
 
 	public static final String SQL_INSERT = "INSERT INTO LIVRE(ID_AUTEUR, TITRE, NB_PAGES, CATEGORIE) VALUES(?,?,?,?)";
@@ -47,20 +51,20 @@ public class LivreDaoImpl implements LivreDao {
 			int resultat = ps.executeUpdate();
 
 			if (resultat == 0)
-				throw new DaoException("Echec création Livre (aucun ajout)");
+				throw new DaoException("Echec creation Livre (aucun ajout)");
 
 			ResultSet rs = ps.getGeneratedKeys();
 			if (rs.next()) {
 				// On récupère l'identifiant généré par la BDD
 				livre.setId(rs.getLong(1));
 			} else {
-				throw new DaoException("Echec création Livre (ID non retourné)");
+				throw new DaoException("Echec creation Livre (ID non retourne)");
 			}
 			rs.close();
 			ps.close();
 
 		} catch (SQLException ex) {
-			throw new DaoException("Echec création Livre", ex);
+			throw new DaoException("Echec creation Livre", ex);
 		} finally {
 			this.getFactory().releaseConnection(con);
 

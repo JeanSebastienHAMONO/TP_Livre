@@ -150,8 +150,11 @@ public class ManageLivre extends HttpServlet {
 				// Modification d'un livre  
 				try {
 					auteur = auteurDao.trouver(Integer.parseInt(idauteur));
-					livre = new Livre(titre, nbpa, categorie, auteur);
-					livre.setId((long) Integer.parseInt(idlivre));
+					livre = livreDao.trouver(Integer.parseInt(idlivre));
+					livre.setTitre(titre);
+					livre.setCategorie(categorie);
+					livre.setAuteur(auteur);
+					livre.setNbPages(nbpa);
 					livreDao.miseAJour(livre);
 					request.setAttribute("idlivre", livre.getId().toString());
 					request.setAttribute("livre", livre);

@@ -11,7 +11,7 @@ import java.util.List;
 import biblio.model.Auteur;
 
 /**
- * Donné par le formateur 
+ * Implementation du DAO Auteur 
  *
  */
 public class AuteurDaoImpl implements AuteurDao {
@@ -44,19 +44,19 @@ public class AuteurDaoImpl implements AuteurDao {
 			int statut = pst.executeUpdate();
 
             if ( statut == 0 ) {
-                throw new DaoException( "Echec cr�ation Auteur (aucun ajout)" );
+                throw new DaoException( "Echec creation Auteur (aucun ajout)" );
             }
             ResultSet rsKeys = pst.getGeneratedKeys();
             if ( rsKeys.next() ) {
                 auteur.setId( rsKeys.getLong( 1 ) );
             } else {
-                throw new DaoException( "Echec cr�ation Auteur (ID non retourn�)" );
+                throw new DaoException( "Echec creation Auteur (ID non retourn�)" );
             }
             rsKeys.close();
 			pst.close();
 			
 	    } catch(SQLException ex) {
-	    	throw new DaoException("Echec cr�ation Auteur",ex);
+	    	throw new DaoException("Echec creation Auteur",ex);
 	    } finally {
 	    	factory.releaseConnection(con);
 		}
@@ -157,13 +157,13 @@ public class AuteurDaoImpl implements AuteurDao {
 			int statut = pst.executeUpdate();
 
             if ( statut == 0 ) {
-                throw new DaoException( "Echec cr�ation Auteur (aucun ajout)" );
+                throw new DaoException( "Echec creation Auteur (aucun ajout)" );
             }
             
 			pst.close();
 			
 	    } catch(SQLException ex) {
-	    	throw new DaoException("Echec cr�ation Auteur",ex);
+	    	throw new DaoException("Echec creation Auteur",ex);
 	    } finally {
 	    	factory.releaseConnection(con);
 		}
