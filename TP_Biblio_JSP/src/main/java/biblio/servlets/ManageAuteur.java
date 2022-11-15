@@ -106,7 +106,10 @@ public class ManageAuteur extends HttpServlet {
 			ctrl = false;
 			messageErreur = messageErreur + "Le numéro de téléphone est obligatoire<br/>";
 		}
-		
+		if (!telephone.matches("^[0-9]{10}")) {
+			ctrl = false;
+			messageErreur = messageErreur + "Mauvais format du numéro de téléphone (10 chiffres)<br/>";
+		}
 		
         // Le controle est OK, je rentre soit en Ajout, soit en Modif
 		if (ctrl) {

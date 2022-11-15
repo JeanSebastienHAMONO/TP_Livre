@@ -1,6 +1,6 @@
 package biblio.model;
 
-public class Livre {
+public class Livre extends GenericBean {
 
 	private Long id;
 	private String titre;
@@ -8,11 +8,15 @@ public class Livre {
 	private String categorie;
 	private Auteur auteur;
 	
+	public static int TITRE_MAX_LENGTH = 50;
+	public static int CATEGORIE_MAX_LENGTH = 20;
+	
 	public Livre() {
 		
 	}
 	
 	public Livre(String titre, int nbPages, String categorie, Auteur auteur) {
+		super();
 		this.setTitre(titre);
 		this.setNbPages(nbPages);
 		this.setCategorie(categorie);
@@ -37,7 +41,7 @@ public class Livre {
 	}
 
 	public void setTitre(String titre) {
-		this.titre = titre.substring(0, 50);
+		this.titre = this.ctrlLength(titre, Livre.TITRE_MAX_LENGTH);
 	}
 
 	public int getNbPages() {
@@ -53,7 +57,7 @@ public class Livre {
 	}
 
 	public void setCategorie(String categorie) {
-		this.categorie = categorie.substring(0, 20);
+		this.categorie = this.ctrlLength(categorie, Livre.CATEGORIE_MAX_LENGTH);
 	}
 
 	public Auteur getAuteur() {

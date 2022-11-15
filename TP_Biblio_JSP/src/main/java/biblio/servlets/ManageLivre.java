@@ -115,11 +115,15 @@ public class ManageLivre extends HttpServlet {
 			messageErreur = messageErreur + "Le nombre de pages est obligatoire<br/>";
 		}
 		try {
+			if (!nbpages.matches("^[0-9]+")) {
+				ctrl = false;
+				messageErreur = messageErreur + "Mauvais format du nombre de pages (10 chiffres max)<br/>";
+			}
 			nbpa = Integer.parseInt(nbpages);
 		} catch (Exception e) {
 			e.printStackTrace();
 			ctrl = false;
-			messageErreur = messageErreur + "Le format du nombre de pages n'est pas valide<br/>";
+			messageErreur = messageErreur + "Le format du nombre de pages n'est pas valide (10 chiffres max)<br/>";
 		}
 
 		// Les controles sont Ok
