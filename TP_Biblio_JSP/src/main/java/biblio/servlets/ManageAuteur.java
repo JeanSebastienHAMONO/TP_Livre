@@ -86,6 +86,7 @@ public class ManageAuteur extends HttpServlet {
 		String telephone = request.getParameter("telephone");
 		String email = request.getParameter("email");
 
+		// Gestion des messages d'erreurs
 		String messageErreur = "";
 		String message = "";
 		String libelleAction = "Modification";
@@ -95,7 +96,8 @@ public class ManageAuteur extends HttpServlet {
 		Auteur auteur = null;
 		
 		request.setAttribute("idauteur", idAuteur);
-
+		
+        // Controle des valeurs des champs obligatoires
 		if ((nom == null) || (nom.trim().length() <= 0)) {
 			ctrl = false;
 			messageErreur = messageErreur + "Le nom est obligatoire<br/>";
@@ -104,7 +106,9 @@ public class ManageAuteur extends HttpServlet {
 			ctrl = false;
 			messageErreur = messageErreur + "Le numéro de téléphone est obligatoire<br/>";
 		}
-
+		
+		
+        // Le controle est OK, je rentre soit en Ajout, soit en Modif
 		if (ctrl) {
 			if ((idAuteur == null) || (idAuteur.trim().length() <= 0)) {
 
@@ -123,6 +127,7 @@ public class ManageAuteur extends HttpServlet {
 				}
 			} else {
 
+				// Modification d'un auteur
 				request.setAttribute("idauteur", idAuteur);
 				try {
 					auteur = new Auteur(nom, prenom, telephone, email);
@@ -136,6 +141,7 @@ public class ManageAuteur extends HttpServlet {
 			}
 		}
 
+		// On renvoie les valeurs à la jsp
 		request.setAttribute("nom", nom);
 		request.setAttribute("prenom", prenom);
 		request.setAttribute("telephone", telephone);

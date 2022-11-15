@@ -93,6 +93,7 @@ public class ManageLivre extends HttpServlet {
 		String nbpages = request.getParameter("nbpages");
 		String categorie = request.getParameter("categorie");
 
+		// Gestion des messages d'erreurs
 		String messageErreur = "";
 		String message = "";
 		String libelleAction = "Modification";
@@ -104,6 +105,7 @@ public class ManageLivre extends HttpServlet {
 		Livre livre = null;
 		int nbpa = 0;
 
+		// Controle des valeurs des champs obligatoires
 		if ((titre == null) || (titre.trim().length() <= 0)) {
 			ctrl = false;
 			messageErreur = messageErreur + "Le titre est obligatoire<br/>";
